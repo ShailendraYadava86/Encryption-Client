@@ -92,9 +92,7 @@ class StringEncrypt
     function My_mcrypt($action, $string)
     {
         $key     = SECRET_KEY;
-        
         $key     = $key . "\0";
-
         $payload = 'In 1435 the abbey';
         if ($action == 'encrypt') {
             $iv     = mcrypt_create_iv(IV_SIZE, MCRYPT_DEV_URANDOM);
