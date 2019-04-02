@@ -19,8 +19,8 @@ if (!extension_loaded('mcrypt')) {
 /*
 Constants secret_key, secret_iv and IV_SIZE to be used for encryption or decryption through openSSL / Mcrypt.
 */
-define('secret_key', 'A9 [nImRl~lEsrP>upS*D=mR/zy`mPjG87P2i!pp$)T)Fh](8ZuML?6ZA?6[Yl$/');
-define('secret_iv', 'A9 [nImRl~lEsrP>upS*D=mR/zy`mPjG87P2i!pp$)T)Fh](8ZuML?6ZA?6[Yl$/');
+define('SECRET_KEY', 'A9 [nImRl~lEsrP>upS*D=mR/zy`mPjG87P2i!pp$)T)Fh](8ZuML?6ZA?6[Yl$/');
+define('SECRET_IV', 'A9 [nImRl~lEsrP>upS*D=mR/zy`mPjG87P2i!pp$)T)Fh](8ZuML?6ZA?6[Yl$/');
 define('IV_SIZE', mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC));
 
 
@@ -65,8 +65,8 @@ class StringEncrypt
     {
         $output         = false;
         $encrypt_method = "AES-256-CBC";
-        $secret_key     = secret_key;
-        $secret_iv      = secret_iv;
+        $secret_key     = SECRET_KEY;
+        $secret_iv      = SECRET_IV;
         // hash
         $key            = hash('sha256', $secret_key);
         
@@ -91,8 +91,10 @@ class StringEncrypt
     
     function My_mcrypt($action, $string)
     {
-        $key     = secret_key;
+        $key     = SECRET_KEY;
+        
         $key     = $key . "\0";
+
         $payload = 'In 1435 the abbey';
         if ($action == 'encrypt') {
             $iv     = mcrypt_create_iv(IV_SIZE, MCRYPT_DEV_URANDOM);
