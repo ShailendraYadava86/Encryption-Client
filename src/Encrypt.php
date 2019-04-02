@@ -2,7 +2,7 @@
 
 namespace Shai\Encrypt;
 
-/*
+/**
  Check OpenSSL Extension enabled or not.
 */
 if (!extension_loaded('openssl')) {
