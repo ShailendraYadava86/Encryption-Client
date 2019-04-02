@@ -3,14 +3,14 @@
 namespace Shai\Encrypt;
 
 /**
- Check OpenSSL Extension enabled or not.
+* Check OpenSSL Extension enabled or not.
 */
 if (!extension_loaded('openssl')) {
 	die('Please enable openssl extentsion.');
 }
 
 /**
- Check Mcrypt Extension enabled or not.
+* Check Mcrypt Extension enabled or not.
 */
 if (!extension_loaded('mcrypt')) {
 	die('Please enable mcypt extentsion.');
