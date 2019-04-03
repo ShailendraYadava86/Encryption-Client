@@ -46,10 +46,10 @@ class StringEncrypt
     {
         switch ($this->lib) {
             case 'openssl':
-                return $this->My_openssl($action, $string);
+                return $this->MyOpenssl($action, $string);
                 break;
             case 'mcrypt':
-                return $this->My_mcrypt($action, $string);
+                return $this->myMcrypt($action, $string);
                 break;
         }
     }
@@ -61,7 +61,7 @@ class StringEncrypt
      * @param  string  $string
      */
     
-    function My_openssl($action, $string)
+    function MyOpenssl($action, $string)
     {
         $output         = false;
         $encrypt_method = "AES-256-CBC";
@@ -89,14 +89,14 @@ class StringEncrypt
      * @return string  $string
      */
     
-    function My_mcrypt($action, $string)
+    function myMcrypt($action, $string)
     {
-        $key     = SECRET_KEY;
-        $key     = $key . "\0";
-        $payload = 'In 1435 the abbey';
+        $key     = 'secret-key-is-secret';
+        $key     = $this->padKey($key);
+        
         if ($action == 'encrypt') {
             $iv     = mcrypt_create_iv(IV_SIZE, MCRYPT_DEV_URANDOM);
-            $crypt  = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $payload, MCRYPT_MODE_CBC, $iv);
+            $crypt  = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $string, MCRYPT_MODE_CBC, $iv);
             $combo  = $iv . $crypt;
             $garble = base64_encode($iv . $crypt);
             return $garble;
@@ -108,6 +108,24 @@ class StringEncrypt
             return $payload;
         }
     }
+	
+	function padKey($key) 
+	{
+		// Get the current key size
+		$keySize = strlen($key);
+
+		// Set an array containing the valid sizes
+		$validSizes = [16,24,32];
+
+		// Loop through sizes and return correct padded $key
+		foreach($validSizes as $validSize) {
+		if ($keySize <= $validSize) return str_pad($key, $validSize, "\0");
+		}
+
+		// Throw an exception if the key is greater than the max size
+		echo "Key size is too large"; 
+
+	}
 }
 
 class EncriptData

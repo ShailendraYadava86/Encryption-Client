@@ -1,5 +1,5 @@
 <?php
-namespace Shai\Encrypt;
+
 use Shai\Encrypt\EncriptData;
 include(dirname(__FILE__).'/Encryption-Client/src/Encrypt.php');
 // Pass Any String to Encrypt
