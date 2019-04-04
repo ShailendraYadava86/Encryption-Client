@@ -19,10 +19,5 @@
     "psr-4": {
       "StringEncrypt\\": "src/"
     }
-  },
-  "autoload-dev": {
-    "classmap": [
-      "tests/TestCase.php"
-    ]
   }
 }
