@@ -1,6 +1,6 @@
 <?php
 
-namespace Shai\Encrypt;
+namespace StringEncrypt;
 
 /**
  * Check OpenSSL Extension enabled or not.
@@ -128,7 +128,7 @@ class StringEncrypt
 	}
 }
 
-class EncriptData
+class Encrypt
 {
     // For openssl encrypt 
     public static function opensslEncript($data)
