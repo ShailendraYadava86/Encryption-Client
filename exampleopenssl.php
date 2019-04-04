@@ -1,7 +1,7 @@
 <?php
 
 use StringEncrypt\Encrypt;
-include(dirname(__FILE__).'/Encryption-Client/src/Encrypt.php');
+require (dirname(__FILE__) . '/vendor/autoload.php');
 // Pass Any String to Encrypt
 echo Encrypt::opensslEncript('Toooo Use Change')."<br/>";
 // Pass Encrypted string to find original string
