@@ -14,7 +14,7 @@ class ExampleTest extends TestCase
 
      public function testOpenssl(){
         $expected_result = true;
-        $actual_result = Encrypt::opensslEncript('Toooo Use Change');
+        $actual_result = Encrypt::opensslEncript('PhpUnit tested String Encryption and Decryption');
         $actual_resultout = Encrypt::opensslDecript($actual_result);
         echo 'Encrypted String is '.$actual_result;
         echo 'Decrypted String is '.$actual_resultout;
