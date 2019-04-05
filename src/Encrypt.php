@@ -109,23 +109,22 @@ class StringEncrypt
         }
     }
 	
-	function padKey($key) 
-	{
-		// Get the current key size
-		$keySize = strlen($key);
+    function padKey($key) 
+    {
+	// Get the current key size
+	$keySize = strlen($key);
 
-		// Set an array containing the valid sizes
-		$validSizes = [16,24,32];
+	// Set an array containing the valid sizes
+	$validSizes = [16,24,32];
 
-		// Loop through sizes and return correct padded $key
-		foreach($validSizes as $validSize) {
-		if ($keySize <= $validSize) return str_pad($key, $validSize, "\0");
-		}
-
-		// Throw an exception if the key is greater than the max size
-		echo "Key size is too large"; 
-
+	// Loop through sizes and return correct padded $key
+	foreach($validSizes as $validSize) {
+	if ($keySize <= $validSize) return str_pad($key, $validSize, "\0");
 	}
+
+	// Throw an exception if the key is greater than the max size
+	echo "Key size is too large"; 
+     }
 }
 
 class Encrypt
