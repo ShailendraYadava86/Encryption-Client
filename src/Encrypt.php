@@ -45,7 +45,7 @@ class StringEncrypt
     {
         switch ($this->lib) {
             case 'openssl':
-                return $this->MyOpenssl($action, $string);
+                return $this->myOpenssl($action, $string);
                 break;
             case 'mcrypt':
                 return $this->myMcrypt($action, $string);
@@ -60,7 +60,7 @@ class StringEncrypt
      * @param  string  $string
      */
     
-    function MyOpenssl($action, $string)
+    function myOpenssl($action, $string)
     {
         $output         = false;
         $encrypt_method = "AES-256-CBC";
