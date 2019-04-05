@@ -5,6 +5,8 @@ For Composer installation command
 
 "composer require shailendrayadava86/encryption-client:dev-master"
 
+Note - The mcrypt extension was deprecated in php 7.1 therefore we need to use only openssl in PHP latest version.
+
 
 For PHPUnit test folder unittest folder required to  be placed on root directory.
 Command For PHPUnit test of Openssl Encrypt and decrypt Test Execution.
