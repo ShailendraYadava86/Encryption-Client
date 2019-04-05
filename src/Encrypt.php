@@ -17,11 +17,10 @@ if (!extension_loaded('mcrypt')) {
 }
 
 /*
-Constants secret_key, secret_iv and IV_SIZE to be used for encryption or decryption through openSSL / Mcrypt.
+Constants secret_key, secret_iv to be used for encryption or decryption through openSSL.
 */
 define('SECRET_KEY', 'A9 [nImRl~lEsrP>upS*D=mR/zy`mPjG87P2i!pp$)T)Fh](8ZuML?6ZA?6[Yl$/');
 define('SECRET_IV', 'A9 [nImRl~lEsrP>upS*D=mR/zy`mPjG87P2i!pp$)T)Fh](8ZuML?6ZA?6[Yl$/');
-define('IV_SIZE', mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC));
 
 
 class StringEncrypt
@@ -91,6 +90,7 @@ class StringEncrypt
     
     function myMcrypt($action, $string)
     {
+	define('IV_SIZE', mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC));    
         $key     = 'secret-key-is-secret';
         $key     = $this->padKey($key);
         
