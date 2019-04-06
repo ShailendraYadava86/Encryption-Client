@@ -7,8 +7,6 @@ Requirement -: PHPUnit 6.5.14 (tested)
 
 "composer require shailendrayadava86/encryption-client:dev-master"
 
-Note - The mcrypt extension was deprecated in php 7.1 therefore we need to use only openssl in PHP latest version.
-
 # PHPUnit Test -:
 
 Folder "unittest" required to  be placed on root directory from path "/vendor/shailendrayadava86/encryption-client".
@@ -24,3 +22,12 @@ It will run and give us exact output (encrypted and decrypted text).
 
 For OPenSSL Encryption Encrypt::opensslEncript() and decryption is done by Encrypt::opensslDecript().
 For Mcrypt Encrypt::mcryptEncript() and Encrypt::mcryptDecript().
+
+# Note 
+If you are on php7 or higher and get message "Please enable mcypt extentsion."
+comment line number 16 for file Encrypt.php under encryption-client path like "/vendor/shailendrayadava86/encryption-client/src/"
+/*if (!extension_loaded('mcrypt')) {
+    die('Please enable mcypt extentsion.');
+}*/
+
+Note - The mcrypt extension was deprecated in php 7.1 therefore we need to use only openssl in PHP latest version.
