@@ -1,7 +1,7 @@
 # encryption-client
 It is used for Encrpty and Decrypt any text or provided String.
 
-Requirements -: PHPUnit 6.5.14
+Requirement -: PHPUnit 6.5.14 (tested)
 
 # Installation -:
 
