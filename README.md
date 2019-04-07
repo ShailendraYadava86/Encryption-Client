@@ -11,9 +11,14 @@ Requirement -: PHPUnit 6.5.14 (We tested on PHP 7.1 version)
 
 Folder "unittest" required to  be placed on root directory from path "/vendor/shailendrayadava86/encryption-client".
 
-Command For PHPUnit test of Openssl Encrypt and decrypt Test Execution.
+Command for PHPUnit entire 'EncryptProviderTest' file execution
+"vendor/bin/phpunit unittest/EncryptProviderTest"
 
-"vendor/bin/phpunit --filter openssl unittest/ExampleTest.php"
+Other PHPUnit File Execution Command for other Test Files (Tested)
+1. "vendor/bin/phpunit unittest/DecryptProviderTest" (with PHPUnit Provider Usage)
+2. "vendor/bin/phpunit --filter openssl unittest/ExampleTest.php"
+3. "vendor/bin/phpunit unittest/ExampleTest"
+
 
 # To Run Example Files
 Place it under root directory
